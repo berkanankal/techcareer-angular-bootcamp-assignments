@@ -8,11 +8,14 @@ import { ApiService } from '../services/api.service';
 })
 export class ContactComponent implements OnInit {
 
+  contacts : any = [];
+
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     this.api.getContacts().subscribe(data => {
-      console.log(data);
+      this.contacts = data;
+      console.log(this.contacts);
     }
     );
   }

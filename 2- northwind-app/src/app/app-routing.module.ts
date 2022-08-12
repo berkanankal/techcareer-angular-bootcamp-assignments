@@ -9,13 +9,14 @@ import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "products", component: ProductsComponent },
   { path: "categories", component: CategoriesComponent },
   { path: "employees", component: EmployeesComponent },
   { path: "contact", component: ContactComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "home", component: HomeComponent },
 ];
 
 @NgModule({
