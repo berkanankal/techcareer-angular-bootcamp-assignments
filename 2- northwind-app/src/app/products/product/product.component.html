@@ -1,0 +1,23 @@
+<div style="height: 540px">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img
+          src="http://localhost:3030/api/products/images/{{
+            product.imageName
+          }}"
+          class="img-fluid rounded-start"
+          alt="{{ product.imageName }}"
+          width="300"
+        />
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <div class="card-text">Price: {{ product.price }}</div>
+          <div class="card-text mb-3">Stock: {{ product.stock }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

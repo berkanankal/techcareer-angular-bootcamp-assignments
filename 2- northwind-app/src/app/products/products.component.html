@@ -4,16 +4,22 @@
       <img
         class="card-img-top"
         height="200"
-        src="http://localhost:3030/api/products/images/{{ product.imageName }}"
+        src="http://localhost:3030/api/products/images/{{ product.imageName }} "
         alt="Card image cap"
       />
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <div class="card-text">Price: {{ product.price }}</div>
         <div class="card-text mb-3">Stock: {{ product.stock }}</div>
-        <button class="btn btn-primary">Detay</button>
+        <a
+          [routerLink]="['/products', product.id]"
+          routerLinkActive="router-link-active"
+          ><button class="btn btn-primary">Detay</button></a
+        >
         <button class="btn btn-success mx-2">Güncelle</button>
-        <button class="btn btn-danger">Sil</button>
+        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+          Sil
+        </button>
       </div>
     </div>
   </div>

@@ -2,22 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-
-  getProducts(){
+  getProducts() {
     return this.http.get('http://localhost:3030/api/products');
   }
+  getProductById(id: number) {
+    return this.http.get('http://localhost:3030/api/products/' + id);
+  }
+  deleteProduct(id: number): any {
+    return this.http.delete('http://localhost:3030/api/products/' + id);
+  }
 
-  getEmployees(){
+  getEmployees() {
     return this.http.get('http://localhost:3030/api/employees');
   }
 
-  getContacts(){
+  getContacts() {
     return this.http.get('http://localhost:3030/api/contact-us');
   }
 }
