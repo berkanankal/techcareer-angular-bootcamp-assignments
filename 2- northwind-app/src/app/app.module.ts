@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './products/product/product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeComponent } from './employees/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +29,16 @@ import { ProductComponent } from './products/product/product.component';
     ContactComponent,
     LoginComponent,
     RegisterComponent,
-    ProductComponent
+    ProductComponent,
+    EmployeeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

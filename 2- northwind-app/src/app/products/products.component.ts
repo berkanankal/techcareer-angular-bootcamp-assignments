@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { IProduct } from '../models/IProduct';
 
 @Component({
   selector: 'app-products',
@@ -9,11 +11,22 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   products: any = [];
+  myForm!: FormGroup;
+  productModelObj!: IProduct;
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(
+    private api: ApiService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.myForm = this.fb.group({
+      name: '',
+      price: '',
+      stock: '',
+    });
   }
 
   action() {
@@ -32,5 +45,15 @@ export class ProductsComponent implements OnInit {
         this.getAllProducts();
       });
     }
+  }
+
+  addProduct() {
+    this.productModelObj = this.myForm.value;
+    this.api.addProduct(this.productModelObj).subscribe(() => {
+      this.myForm.reset();
+      let ref = document.getElementById('cancel');
+      ref?.click();
+      this.getAllProducts();
+    });
   }
 }
