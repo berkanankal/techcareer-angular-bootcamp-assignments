@@ -29,10 +29,6 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  action() {
-    this.router.navigate(['products/2']);
-  }
-
   getAllProducts() {
     this.api.getProducts().subscribe((data) => {
       this.products = data;

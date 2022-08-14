@@ -19,9 +19,10 @@
         <a [routerLink]="['/employees', employee.id]"
           ><button class="btn btn-primary">Detay</button></a
         >
-
         <button class="btn btn-success mx-2">Güncelle</button>
-        <button class="btn btn-danger">Sil</button>
+        <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">
+          Sil
+        </button>
       </div>
     </div>
   </div>
