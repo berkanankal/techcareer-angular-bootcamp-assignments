@@ -3,16 +3,23 @@
     <div class="card" style="width: 18rem">
       <img
         class="card-img-top"
-        src="http://localhost:3030/api/employees/images/{{ employee.imageName }}"
+        src="http://localhost:3030/api/employees/images/{{
+          employee.imageName
+        }}"
         alt="Card image cap"
       />
       <div class="card-body">
         <h5 class="card-title">{{ employee.title }}</h5>
         <div class="card-text">First Name: {{ employee.firstName }}</div>
         <div class="card-text">Last Name: {{ employee.lastName }}</div>
-        <div class="card-text">Country: {{ employee.country }} / {{employee.city}}</div>
+        <div class="card-text">
+          Country: {{ employee.country }} / {{ employee.city }}
+        </div>
         <div class="card-text mb-3">Birthdate: {{ employee.birthDate }}</div>
-        <button class="btn btn-primary">Detay</button>
+        <a [routerLink]="['/employees', employee.id]"
+          ><button class="btn btn-primary">Detay</button></a
+        >
+
         <button class="btn btn-success mx-2">Güncelle</button>
         <button class="btn btn-danger">Sil</button>
       </div>

@@ -1,1 +1,27 @@
-<p>employee works!</p>
+<div style="height: 540px">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          class="img-fluid rounded-start"
+          src="http://localhost:3030/api/employees/images/{{
+            employee.imageName
+          }}"
+          alt="Card image cap"
+          width="300"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ employee.title }}</h5>
+          <div class="card-text">First Name: {{ employee.firstName }}</div>
+          <div class="card-text">Last Name: {{ employee.lastName }}</div>
+          <div class="card-text">
+            Country: {{ employee.country }} / {{ employee.city }}
+          </div>
+          <div class="card-text mb-3">Birthdate: {{ employee.birthDate }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
