@@ -12,6 +12,9 @@ export class ProductsComponent implements OnInit {
   products: any = [];
   myForm!: FormGroup;
   productModelObj!: IProduct;
+  showAdd!: boolean;
+  showUpdate!: boolean;
+  updateId!: number;
 
   constructor(private api: ApiService, private fb: FormBuilder) {}
 
@@ -46,5 +49,32 @@ export class ProductsComponent implements OnInit {
       ref?.click();
       this.getAllProducts();
     });
+  }
+
+  clickAddEmployee() {
+    this.myForm.reset();
+    this.showAdd = true;
+    this.showUpdate = false;
+  }
+
+  onEdit(product: IProduct) {
+    this.showAdd = false;
+    this.showUpdate = true;
+    this.updateId = product.id;
+    this.myForm.controls['name'].setValue(product.name);
+    this.myForm.controls['price'].setValue(product.price);
+    this.myForm.controls['stock'].setValue(product.stock);
+  }
+
+  updateProduct() {
+    this.productModelObj = this.myForm.value;
+    this.api
+      .updateProduct(this.updateId, this.productModelObj)
+      .subscribe(() => {
+        this.myForm.reset();
+        let ref = document.getElementById('cancel');
+        ref?.click();
+        this.getAllProducts();
+      });
   }
 }

@@ -19,6 +19,9 @@ export class ApiService {
   addProduct(product: any): any {
     return this.http.post('http://localhost:3030/api/products', product);
   }
+  updateProduct(id: number, product: any): any {
+    return this.http.put('http://localhost:3030/api/products/' + id, product);
+  }
 
   getEmployees() {
     return this.http.get('http://localhost:3030/api/employees');
