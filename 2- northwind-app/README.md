@@ -1,27 +1,8 @@
 # NorthwindApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![1](https://user-images.githubusercontent.com/67144252/184373365-7d0ded3d-669e-4745-a2df-9ea68f97cabd.png)
+![2](https://user-images.githubusercontent.com/67144252/184373393-76757132-03bc-4054-b0f5-7e4766f9ff7c.png)
+![3](https://user-images.githubusercontent.com/67144252/184373420-b8d96259-7481-4478-9d8e-e5ea210058bd.png)
+![4](https://user-images.githubusercontent.com/67144252/184373430-48d4badc-4443-4406-9a08-eb156c15944a.png)
+![5](https://user-images.githubusercontent.com/67144252/184373438-0795a58d-6796-4e30-a578-a4a370972d61.png)
+![6](https://user-images.githubusercontent.com/67144252/184373448-ea2b8ec5-96e1-47f5-bb32-430b2466b928.png)
