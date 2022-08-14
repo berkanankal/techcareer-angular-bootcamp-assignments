@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { IProduct } from '../models/IProduct';
 
@@ -14,11 +13,7 @@ export class ProductsComponent implements OnInit {
   myForm!: FormGroup;
   productModelObj!: IProduct;
 
-  constructor(
-    private api: ApiService,
-    private router: Router,
-    private fb: FormBuilder
-  ) {}
+  constructor(private api: ApiService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.getAllProducts();
