@@ -35,6 +35,9 @@ export class ApiService {
   addEmployee(employee: any): any {
     return this.http.post('http://localhost:3030/api/employees', employee);
   }
+  updateEmployee(id: number, employee: any): any {
+    return this.http.put('http://localhost:3030/api/employees/' + id, employee);
+  }
 
   getContacts() {
     return this.http.get('http://localhost:3030/api/contact-us');

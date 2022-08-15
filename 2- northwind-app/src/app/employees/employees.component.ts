@@ -13,6 +13,9 @@ export class EmployeesComponent implements OnInit {
   employees: any = [];
   myForm!: FormGroup;
   employeeModelObj!: IEmployee;
+  showAdd = false;
+  showUpdate = false;
+  employeeId!: number;
 
   constructor(private api: ApiService, private fb: FormBuilder) {}
 
@@ -49,5 +52,33 @@ export class EmployeesComponent implements OnInit {
       ref?.click();
       this.getEmployees();
     });
+  }
+
+  clickAddEmployee() {
+    this.myForm.reset();
+    this.showAdd = true;
+    this.showUpdate = false;
+  }
+
+  onEdit(employee: any) {
+    this.showAdd = false;
+    this.showUpdate = true;
+    this.employeeId = employee.id;
+    this.myForm.controls['firstName'].setValue(employee.firstName);
+    this.myForm.controls['lastName'].setValue(employee.lastName);
+    this.myForm.controls['title'].setValue(employee.title);
+    this.myForm.controls['country'].setValue(employee.country);
+    this.myForm.controls['city'].setValue(employee.city);
+  }
+
+  updateEmployee() {
+    this.api
+      .updateEmployee(this.employeeId, this.myForm.value)
+      .subscribe(() => {
+        this.myForm.reset();
+        let ref = document.getElementById('cancel');
+        ref?.click();
+        this.getEmployees();
+      });
   }
 }
