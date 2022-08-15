@@ -67,6 +67,28 @@ export class ApiService {
       },
     });
   }
+  addCategory(category: any): any {
+    return this.http.post('http://localhost:3030/api/categories', category, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),
+      },
+    });
+  }
+  updateCategory(id: number, category: any): any {
+    return this.http.put(
+      'http://localhost:3030/api/categories/' + id,
+      category,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:
+            'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),
+        },
+      }
+    );
+  }
 
   register(user: any) {
     return this.http.post('http://localhost:3030/api/auth/register', user);

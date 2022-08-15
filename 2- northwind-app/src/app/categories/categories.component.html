@@ -2,6 +2,7 @@
   class="btn btn-primary mb-4"
   data-bs-toggle="modal"
   data-bs-target="#exampleModal"
+  (click)="clickAddCategory()"
 >
   Add Category
 </button>
@@ -17,7 +18,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+        <h5 class="modal-title" id="exampleModalLabel" *ngIf="showAdd">
+          Add Category
+        </h5>
+        <h5 class="modal-title" id="exampleModalLabel" *ngIf="showUpdate">
+          Update Category
+        </h5>
         <button
           type="button"
           class="btn-close"
@@ -26,10 +32,11 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="myForm">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <input
+              formControlName="name"
               type="text"
               class="form-control"
               id="exampleInputEmail1"
@@ -43,11 +50,13 @@
             <label for="exampleInputPassword1" class="form-label"
               >Description</label
             >
-            <input
-              type="number"
+            <textarea
+              formControlName="description"
+              type="text"
               class="form-control"
               id="exampleInputPassword1"
-            />
+              rows="3"
+            ></textarea>
           </div>
         </form>
       </div>
@@ -60,8 +69,22 @@
         >
           Close
         </button>
-        <button type="button" class="btn btn-primary">Add</button>
-        <button type="button" class="btn btn-success">Update</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addCategory()"
+          *ngIf="showAdd"
+        >
+          Add
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          *ngIf="showUpdate"
+          (click)="updateCategory()"
+        >
+          Update
+        </button>
       </div>
     </div>
   </div>
@@ -92,6 +115,7 @@
           class="btn btn-success mx-2"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
+          (click)="onEdit(category)"
         >
           Güncelle
         </button>
