@@ -18,7 +18,14 @@ export class CategoriesComponent implements OnInit {
   getAllCategories() {
     this.api.getCategories().subscribe((data) => {
       this.categories = data;
-      console.log(data);
     });
+  }
+
+  deleteCategory(id: number) {
+    if (confirm('Are you sure you want to delete this product?')) {
+      this.api.deleteCategory(id).subscribe(() => {
+        this.getAllCategories();
+      });
+    }
   }
 }

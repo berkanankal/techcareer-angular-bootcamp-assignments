@@ -41,7 +41,6 @@ export class ApiService {
   }
 
   getCategories() {
-    console.log(JSON.parse(localStorage.getItem('token') || '{}'));
     return this.http.get('http://localhost:3030/api/categories', {
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +59,13 @@ export class ApiService {
     });
   }
   deleteCategory(id: number): any {
-    return this.http.delete('http://localhost:3030/api/categories/' + id);
+    return this.http.delete('http://localhost:3030/api/categories/' + id, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),
+      },
+    });
   }
 
   register(user: any) {

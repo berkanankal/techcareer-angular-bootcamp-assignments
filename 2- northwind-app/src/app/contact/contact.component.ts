@@ -15,7 +15,6 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.api.getContacts().subscribe(data => {
       this.contacts = data;
-      console.log(this.contacts);
     }
     );
   }
