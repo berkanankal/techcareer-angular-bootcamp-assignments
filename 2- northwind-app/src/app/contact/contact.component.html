@@ -1,5 +1,8 @@
 <div class="row" style="height: 540px">
-  <div class="col-3 mb-4" *ngFor="let contact of contacts; let i = index">
+  <div
+    class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4"
+    *ngFor="let contact of contacts; let i = index"
+  >
     <div class="card" style="width: 18rem">
       <div class="card-body">
         <div class="card-text">Name: {{ contact.name }}</div>
