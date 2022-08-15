@@ -10,12 +10,17 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductComponent },
-  { path: 'categories', component: CategoriesComponent },
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'categories/:id', component: CategoryComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employees/:id', component: EmployeeComponent },

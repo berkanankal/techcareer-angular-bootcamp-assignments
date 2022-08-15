@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Emitters } from '../emitters/emitters';
 
 @Component({
@@ -9,7 +10,7 @@ import { Emitters } from '../emitters/emitters';
 export class NavbarComponent implements OnInit {
   authenticated = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     if (!!localStorage.getItem('token')) {
@@ -23,5 +24,6 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     Emitters.authEmitter.emit(false);
+    this.router.navigate(['/']);
   }
 }
