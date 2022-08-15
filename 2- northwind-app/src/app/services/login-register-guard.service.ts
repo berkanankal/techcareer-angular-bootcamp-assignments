@@ -10,7 +10,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuardService implements CanActivate {
+export class LoginRegisterGuardService implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(
@@ -18,9 +18,9 @@ export class AuthGuardService implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     if (localStorage.getItem('token')) {
-      return true;
+      this.router.navigate(['/home']);
     }
-    this.router.navigate(['/home']);
-    return false;
+
+    return true;
   }
 }

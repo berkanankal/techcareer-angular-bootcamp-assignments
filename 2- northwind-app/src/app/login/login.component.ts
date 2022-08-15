@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.myForm.reset();
       Emitters.authEmitter.emit(true);
       localStorage.setItem('token', JSON.stringify(res));
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     });
   }
 }
