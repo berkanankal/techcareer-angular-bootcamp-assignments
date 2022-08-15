@@ -13,18 +13,43 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/:id', component: ProductComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'products/:id',
+    component: ProductComponent,
+    canActivate: [AuthGuardService],
+  },
   {
     path: 'categories',
     component: CategoriesComponent,
     canActivate: [AuthGuardService],
   },
-  { path: 'categories/:id', component: CategoryComponent },
-  { path: 'employees', component: EmployeesComponent },
-  { path: 'employees/:id', component: EmployeeComponent },
-  { path: 'contact', component: ContactComponent },
+  {
+    path: 'categories/:id',
+    component: CategoryComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'employees',
+    component: EmployeesComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'employees/:id',
+    component: EmployeeComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },

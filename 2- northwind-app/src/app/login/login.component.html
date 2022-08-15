@@ -27,6 +27,14 @@
                         id="form3Example1c"
                         class="form-control"
                       />
+                      <div
+                        id="emailHelp"
+                        class="form-text"
+                        style="color: red"
+                        *ngIf="username && username.invalid && username.touched"
+                      >
+                        Username is required.
+                      </div>
                     </div>
                   </div>
 
@@ -42,11 +50,23 @@
                         id="form3Example4c"
                         class="form-control"
                       />
+                      <div
+                        id="emailHelp"
+                        class="form-text"
+                        style="color: red"
+                        *ngIf="password && password.invalid && password.touched"
+                      >
+                        Password is required.
+                      </div>
                     </div>
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      [disabled]="myForm.invalid"
+                    >
                       Login
                     </button>
                   </div>

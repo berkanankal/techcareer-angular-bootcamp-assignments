@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Emitters } from '../emitters/emitters';
 
@@ -20,9 +20,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      username: '',
-      password: '',
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
+  }
+
+  get username() {
+    return this.myForm.get('username');
+  }
+  get password() {
+    return this.myForm.get('password');
   }
 
   submit() {
