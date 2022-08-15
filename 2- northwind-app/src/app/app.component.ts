@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Emitters } from './emitters/emitters';
 
 @Component({
   selector: 'app-root',

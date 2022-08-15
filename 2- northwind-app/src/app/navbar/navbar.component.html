@@ -15,7 +15,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/products" routerLinkActive="active"
@@ -23,19 +25,34 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/categories" routerLinkActive="active">Categories</a>
+          <a class="nav-link" routerLink="/categories" routerLinkActive="active"
+            >Categories</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/employees" routerLinkActive="active">Employees</a>
+          <a class="nav-link" routerLink="/employees" routerLinkActive="active"
+            >Employees</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active"
+            >Contact</a
+          >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        <li class="nav-item" *ngIf="!authenticated">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active"
+            >Login</a
+          >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+        <li class="nav-item" *ngIf="!authenticated">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="authenticated">
+          <a class="nav-link" (click)="logout()" style="cursor: pointer"
+            >Logout</a
+          >
         </li>
       </ul>
     </div>

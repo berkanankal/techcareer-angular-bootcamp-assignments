@@ -39,4 +39,12 @@ export class ApiService {
   getContacts() {
     return this.http.get('http://localhost:3030/api/contact-us');
   }
+
+  register(user: any) {
+    return this.http.post('http://localhost:3030/api/auth/register', user);
+  }
+
+  login(user: any) {
+    return this.http.post('http://localhost:3030/api/auth/login', user);
+  }
 }
