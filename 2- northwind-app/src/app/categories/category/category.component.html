@@ -1,0 +1,22 @@
+<div style="height: 540px">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img
+          src="http://localhost:3030/api/categories/images/{{
+            category.imageName
+          }}"
+          class="img-fluid rounded-start"
+          alt="{{ category.imageName }}"
+          width="300"
+        />
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">{{ category.name }}</h5>
+          <div class="card-text">Description: {{ category.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

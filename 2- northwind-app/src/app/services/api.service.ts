@@ -40,6 +40,29 @@ export class ApiService {
     return this.http.get('http://localhost:3030/api/contact-us');
   }
 
+  getCategories() {
+    console.log(JSON.parse(localStorage.getItem('token') || '{}'));
+    return this.http.get('http://localhost:3030/api/categories', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),
+      },
+    });
+  }
+  getCategoryById(id: number) {
+    return this.http.get('http://localhost:3030/api/categories/' + id, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),
+      },
+    });
+  }
+  deleteCategory(id: number): any {
+    return this.http.delete('http://localhost:3030/api/categories/' + id);
+  }
+
   register(user: any) {
     return this.http.post('http://localhost:3030/api/auth/register', user);
   }

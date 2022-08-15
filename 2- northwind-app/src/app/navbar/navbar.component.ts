@@ -17,7 +17,6 @@ export class NavbarComponent implements OnInit {
     }
     Emitters.authEmitter.subscribe((authenticated) => {
       this.authenticated = authenticated;
-      console.log(authenticated);
     });
   }
 
